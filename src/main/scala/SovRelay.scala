@@ -38,10 +38,11 @@ object SovRelay extends App {
   }
 
   def pullLatest(): Unit = {
-    val svc = url("https://public-crest-duality.testeveonline.com/sovereignty/structures/")
+    val svc = url("https://public-crest-duality.testeveonline.com/sovereignty/campaigns/")
     val res = Http(svc OK as.String)
     res.either.map {
       case Right(r) =>
+        println(r)
         lastUpdate = r
         server.broadcast(new TextMessage(r))
       case Left(t) =>
@@ -51,7 +52,7 @@ object SovRelay extends App {
     }
   }
 
-  system.scheduler.schedule(1 seconds, 300 seconds)(pullLatest)
+  system.scheduler.schedule(1 seconds, 30 seconds)(pullLatest)
   println("Scheduled puller")
   server
 }
