@@ -12,5 +12,7 @@ resolvers ++= Seq(
 
 libraryDependencies += "io.backchat.hookup" % "hookup_2.10" % "0.4.0"
 libraryDependencies += "net.databinder.dispatch" %% "dispatch-core" % "0.11.2"
+libraryDependencies += "io.dropwizard.metrics" % "metrics-core" % "3.1.2"
+libraryDependencies += "io.dropwizard.metrics" % "metrics-graphite" % "3.1.2"
 
 mainClass := Some("SovRelay")
