@@ -52,7 +52,7 @@ object SovRelay extends App {
   }
 
   def pullLatest(): Unit = {
-    val svc = url("https://public-crest-duality.testeveonline.com/sovereignty/campaigns/")
+    val svc = url("https://public-crest.eveonline.com/sovereignty/campaigns/")
     val res = Http(svc OK as.String)
     res.either.map {
       case Right(r) =>
